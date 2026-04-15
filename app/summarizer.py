@@ -1,6 +1,6 @@
 from transformers import pipeline
 
-summarizer = pipeline("summarization")
+summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 def summarize_complaint(text):
 
