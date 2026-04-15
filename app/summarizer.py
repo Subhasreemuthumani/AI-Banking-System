@@ -1,9 +1,12 @@
 from transformers import pipeline
 
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
-
 def summarize_complaint(text):
-
-    summary = summarizer(text,max_length=40,min_length=10)
-
-    return summary[0]["summary_text"]
+    try:
+        # AI model perusu-nu Render crash pannaama irukka 
+        # Intha logic use pannuvom.
+        if len(text) > 100:
+            return text[:100] + "..."
+        return text
+    except Exception as e:
+        return text
