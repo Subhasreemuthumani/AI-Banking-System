@@ -1,0 +1,59 @@
+body{
+font-family:Arial;
+background:#f4f6f9;
+}
+
+.wrapper{
+display:flex;
+}
+
+.sidebar{
+width:220px;
+background:#1e2a38;
+color:white;
+height:100vh;
+padding:20px;
+}
+
+.sidebar h3{
+text-align:center;
+margin-bottom:30px;
+}
+
+.sidebar ul{
+list-style:none;
+padding:0;
+}
+
+.sidebar ul li{
+padding:10px;
+}
+
+.sidebar ul li a{
+color:white;
+text-decoration:none;
+}
+
+.sidebar ul li:hover{
+background:#324a5e;
+}
+
+.main{
+flex:1;
+padding:30px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.result{
+background:white;
+padding:15px;
+border-radius:8px;
+}
