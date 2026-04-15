@@ -16,14 +16,15 @@ def send_email(receiver_email, otp):
     msg["From"] = GMAIL_USER
     msg["To"] = receiver_email
 
-    try:
-        # Port 465 is for SSL (more secure and faster for Gmail)
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
-            smtp.login(GMAIL_USER, GMAIL_PASSWORD)
-            smtp.send_message(msg)
-        
-        print(f"✅ OTP {otp} sent successfully to {receiver_email}")
-        return otp
-    except Exception as e:
-        print(f"❌ Gmail SMTP Error: {e}")
-        return None
+import smtplib # Mela irukka-nu check pannikonga
+
+# Intha logic use pannunga (Port 587 + STARTTLS)
+try:
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls() # Secure connection start pannum
+    server.login("digitalbank93@gmail.com", "naiflulwjhpxqoli")
+    server.send_message(msg)
+    server.quit()
+    print("✅ OTP sent via Port 587!")
+except Exception as e:
+    print(f"❌ SMTP 587 Error: {e}")
