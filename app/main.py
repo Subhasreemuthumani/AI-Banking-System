@@ -69,9 +69,10 @@ def register(
 # -------------------------
 # LOGIN & OTP
 # -------------------------
-@app.get("/login", response_class=HTMLResponse)
-def login_page(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+@app.get("/")
+def home(request: Request):
+    # 'context' nu mention panna thaan pudhu version-la work aagum
+    return templates.TemplateResponse(request=request, name="index.html")
 
 @app.post("/send-otp")
 def send_otp_route(background_tasks: BackgroundTasks, email: str = Form(...)):
